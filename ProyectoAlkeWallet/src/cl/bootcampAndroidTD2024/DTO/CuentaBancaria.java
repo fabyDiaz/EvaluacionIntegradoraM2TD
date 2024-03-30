@@ -77,11 +77,15 @@ public class CuentaBancaria {
      * @param dinero
      */
     public void ingresoDinero(double dinero){;
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date fechaActual = new Date();
-        movimientos.add(new MovimientosBancarios(formato.format(fechaActual),"Depósito",dinero));
-        this.saldo += dinero;
-        System.out.println("Tu saldo actual es: "+formatearMoneda(saldo));
+        if(dinero<0){
+            System.out.println("No puede ingresar números negativos");
+        }else{
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date fechaActual = new Date();
+            movimientos.add(new MovimientosBancarios(formato.format(fechaActual),"Depósito",dinero));
+            this.saldo += dinero;
+            System.out.println("Tu saldo actual es: "+formatearMoneda(saldo));
+        }
     }
 
 
@@ -95,6 +99,8 @@ public class CuentaBancaria {
     public void retiroDinero(double dinero){
         if(dinero>saldo){
             System.out.println("No tiene saldo suficiente");
+        }else if(dinero<0) {
+            System.out.println("No puede ingresar un monto negativo");
         }else{
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date fechaActual = new Date();

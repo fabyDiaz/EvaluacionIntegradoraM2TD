@@ -11,7 +11,7 @@ public class ListaUsuariosImpl implements IListaUsuarios {
 
     public ListaUsuariosImpl() {
         this.listaUsuarios.add(new Usuario(1,"Homero","Simpson","123648965-6","+56963268745", new CuentaBancaria(),new Sesion("homero@correo.cl","homero123")));
-        this.listaUsuarios.add(new Usuario(2,"Admin","Ejemplo","12345678-6","+5612345678", new CuentaBancaria(),new Sesion("admin@correo.cl","admin123")));
+        this.listaUsuarios.add(new Usuario(2,"Admin","Ejemplo","11111111-1","+5612345678", new CuentaBancaria(),new Sesion("admin@correo.cl","admin123")));
     }
 
     @Override
