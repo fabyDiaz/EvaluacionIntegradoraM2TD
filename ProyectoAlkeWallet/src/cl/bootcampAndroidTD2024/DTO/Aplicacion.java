@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Aplicacion {
     Scanner scanner = new Scanner(System.in);
-    IListaUsuarios listaUsuarios = new ListaUsuariosImpl();
+    ListaUsuariosImpl listaUsuarios = new ListaUsuariosImpl();
     Usuario usuario = new Usuario();
 
     /**
@@ -28,10 +28,11 @@ public class Aplicacion {
      */
     public void menuInicioApp() {
         int opcion=0;
+        Usuario nuevoUsuario=null;
         boolean entradaValida=true;
-        bienvenida();
         do {
             try {
+                bienvenida();
                 System.out.println("    1. Registrar");
                 System.out.println("    2. Iniciar Sesión");
                 System.out.println("    3. Mostrar lista clientes");
@@ -40,7 +41,15 @@ public class Aplicacion {
                 opcion = scanner.nextInt();
                 switch (opcion) {
                     case 1:
-                        listaUsuarios.agregarUsuario(usuario.crearUsuario());
+                        nuevoUsuario=usuario.crearUsuario();
+                        if(listaUsuarios.obtenerUsuario(nuevoUsuario.getRutUsuario(),nuevoUsuario.getSesion().getEmailUsuario())!=null){
+                            System.out.println("\u001B[31m" +"El usuario ya se encuentra registrado ");
+                            System.out.println("\u001B[0m");
+                        }else{
+                            listaUsuarios.agregarUsuario(nuevoUsuario);
+                            System.out.println("\u001B[32m" +"Registro Exitoso!");
+                            System.out.println("\u001B[0m");
+                        }
                         scanner.nextLine();
                         break;
                     case 2:
@@ -54,15 +63,21 @@ public class Aplicacion {
                     case 4:
                         System.out.println("Hasta la proxima!");
                         entradaValida = false;
+                        scanner.nextLine();
                         break;
                     default:
-                        System.out.println("Opción no válida. Por favor, ingrese un número válido.");
+                        System.out.println("\u001B[31m" +"Opción no válida. Por favor, ingrese un número válido.");
+                        System.out.println("\u001B[0m");
+                        scanner.nextLine();
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Error: Ingrese un número entero válido.");
+                System.out.println("\u001B[31m" +"Error: Ingrese un número entero válido.");
+                System.out.println("\u001B[0m");
                 scanner.nextLine();
             }
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
         } while (entradaValida);
     }
 
@@ -91,7 +106,8 @@ public class Aplicacion {
                 loginExitoso = true;
                 System.out.println("");
                 System.out.println("=================================");
-                System.out.println("Inicio de sesión exitoso. ¡Bienvenido, " + usuario.getNombreUsuario() + "!");
+                System.out.println("\u001B[32m" +"Inicio de sesión exitoso. ¡Bienvenido, " + usuario.getNombreUsuario() + "!");
+                System.out.println("\u001B[0m");
                 System.out.println("Presione Enter para continuar...");
                 scanner.nextLine();
             } else {
@@ -202,13 +218,19 @@ public class Aplicacion {
                         case 8:
                             System.out.println("Has cerrado la sesión");
                             entradaValida = false;
+                            System.out.println("Presione Enter para continuar...");
+                            scanner.nextLine();
                             break;
                         default:
-                            System.out.println("Opción no válida. Por favor, ingrese un número válido.");
+                            System.out.println("\u001B[31m" +"Opción no válida. Por favor, ingrese un número válido.");
+                            System.out.println("\u001B[0m");
+                            scanner.nextLine();
                             break;
                     }
                 }catch (InputMismatchException e){
-                    System.out.println("Error: Ingrese un número entero válido.");
+                    System.out.println("\u001B[31m" +"Error: Ingrese un número entero válido.");
+                    System.out.println("\u001B[0m");
+                    scanner.nextLine();
                 }
             } while (entradaValida);
         }

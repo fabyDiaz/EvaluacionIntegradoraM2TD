@@ -40,6 +40,7 @@ public class Sesion {
      * @return
      */
     public boolean validarContrasena(String contrasena) {
+
         return this.contrasena.equals(contrasena);
     }
     /**
@@ -74,9 +75,19 @@ public class Sesion {
     public Sesion crearCorreoyContrasena() {
         Scanner scanner = new Scanner(System.in);
         String c;
+        Boolean valido=false;
         valiarEmail();
-        System.out.println("CREA UNA CONTRASEÑA");
-        c = scanner.nextLine();
+        do {
+            System.out.println("Ingrese una contraseña (debe tener al menos 6 caracteres y contener al menos una letra y un número):");
+            c = scanner.nextLine();
+            if(c.length() >= 8 && c.matches(".*[a-zA-Z]+.*") && c.matches(".*\\d+.*")){
+                valido = true;
+            }
+        } while (!valido);
+        //return contraseña.length() >= 8 && contraseña.matches(".*[a-zA-Z]+.*") && contraseña.matches(".*\\d+.*");
+
+        /*System.out.println("CREA UNA CONTRASEÑA");
+        c = scanner.nextLine();*/
         return new Sesion(this.emailUsuario, c);
     }
 

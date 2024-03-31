@@ -12,7 +12,7 @@ class AplicacionTest {
     @BeforeEach
     public void configuracion(){
         aplicacionTest = new Aplicacion();
-        usuariotest = new Usuario(2,"Admin","Ejemplo","12345678-6","+5612345678", new CuentaBancaria(),new Sesion("admin@correo.cl","admin123"));// Crear un usuario con las credenciales válidas
+        usuariotest = new Usuario("12345678-6","Admin","Ejemplo","+5612345678", new CuentaBancaria(),new Sesion("admin@correo.cl","admin123"));// Crear un usuario con las credenciales válidas
     }
 
     @Test

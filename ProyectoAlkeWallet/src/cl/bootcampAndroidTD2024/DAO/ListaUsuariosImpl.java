@@ -10,8 +10,8 @@ public class ListaUsuariosImpl implements IListaUsuarios {
     private List<Usuario> listaUsuarios = new ArrayList();
 
     public ListaUsuariosImpl() {
-        this.listaUsuarios.add(new Usuario(1,"Homero","Simpson","123648965-6","+56963268745", new CuentaBancaria(),new Sesion("homero@correo.cl","homero123")));
-        this.listaUsuarios.add(new Usuario(2,"Admin","Ejemplo","11111111-1","+5612345678", new CuentaBancaria(),new Sesion("admin@correo.cl","admin123")));
+        this.listaUsuarios.add(new Usuario("12222222-2","Homero","Simpson","+56963268745", new CuentaBancaria(),new Sesion("homero@correo.cl","homero123")));
+        this.listaUsuarios.add(new Usuario("11111111-1","Admin","Ejemplo","+5612345678", new CuentaBancaria(),new Sesion("admin@correo.cl","admin123")));
     }
 
     @Override
@@ -22,7 +22,7 @@ public class ListaUsuariosImpl implements IListaUsuarios {
     @Override
     public void actualizarUsuario(Usuario usuarioActualizado) {
         for (Usuario u : listaUsuarios) {
-            if (u.getIdusuario()== usuarioActualizado.getIdusuario()) {
+            if (u.getRutUsuario()== usuarioActualizado.getRutUsuario()) {
                 u.setNombreUsuario(usuarioActualizado.getNombreUsuario());
                 //Agregar el resto
                 break;
@@ -31,9 +31,9 @@ public class ListaUsuariosImpl implements IListaUsuarios {
     }
 
     @Override
-    public void eliminarUsuario(int id) {
+    public void eliminarUsuario(String rut) {
         for (int i = 0; i < listaUsuarios.size(); i++) {
-            if (listaUsuarios.get(i).getIdusuario() == id) {
+            if (listaUsuarios.get(i).getRutUsuario().equals(rut)) {
                 listaUsuarios.remove(i);
                 break; // Termina el bucle después de eliminar el producto
             }
@@ -41,9 +41,18 @@ public class ListaUsuariosImpl implements IListaUsuarios {
     }
 
     @Override
-    public Usuario obtenerUsuario(int id) {
+    public Usuario obtenerUsuario(String rut) {
         for (Usuario u : listaUsuarios) {
-            if (u.getIdusuario() == id) {
+            if (u.getRutUsuario().equals(rut)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public Usuario obtenerUsuario(String rut, String correo) {
+        for (Usuario u : listaUsuarios) {
+            if (u.getRutUsuario().equals(rut)&& u.getSesion().getEmailUsuario().equals(correo)) {
                 return u;
             }
         }

@@ -1,14 +1,14 @@
 package cl.bootcampAndroidTD2024.DTO;
 
 import java.util.Scanner;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Usuario {
-    private int idusuario;
+    private String rutUsuario;
     private String nombreUsuario;
     private String apellidoUsuario;
-    private String rutUsuario;
     private String telefonoUsuario;
     private CuentaBancaria cuentaUsuario;
     private Sesion sesion;
@@ -16,22 +16,13 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int idusuario, String nombreUsuario, String apellidoUsuario, String rutUsuario, String telefonoUsuario, CuentaBancaria cuentaUsuario, Sesion sesion) {
-        this.idusuario = idusuario;
+    public Usuario(String rutUsuario, String nombreUsuario, String apellidoUsuario, String telefonoUsuario, CuentaBancaria cuentaUsuario, Sesion sesion) {
+        this.rutUsuario = rutUsuario;
         this.nombreUsuario = nombreUsuario;
         this.apellidoUsuario = apellidoUsuario;
-        this.rutUsuario = rutUsuario;
         this.telefonoUsuario = telefonoUsuario;
         this.cuentaUsuario = cuentaUsuario;
         this.sesion = sesion;
-    }
-
-    public int getIdusuario() {
-        return idusuario;
-    }
-
-    public void setIdusuario(int idusuario) {
-        this.idusuario = idusuario;
     }
 
     public String getNombreUsuario() {
@@ -85,11 +76,6 @@ public class Usuario {
     public String nombreCompleto(){
         return this.nombreUsuario + " " + this.apellidoUsuario;
     }
-
-    public void generarId(){
-        this.idusuario = (int)Math.random()*1000000;
-    }
-
     Scanner scanner = new Scanner(System.in);
 
     /**
@@ -116,7 +102,7 @@ public class Usuario {
 
         this.cuentaUsuario = cuenta.crearCuenta(nombreCompleto().toUpperCase());
 
-        return new Usuario(idusuario, nombreUsuario, apellidoUsuario, rutUsuario, telefonoUsuario, cuentaUsuario, sesion);
+        return new Usuario(rutUsuario, nombreUsuario, apellidoUsuario, telefonoUsuario, cuentaUsuario, sesion);
 
     }
 
@@ -192,10 +178,9 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "idusuario=" + idusuario +
+                ", rutUsuario='" + rutUsuario + '\'' +
                 ", nombreUsuario='" + nombreUsuario + '\'' +
                 ", apellidoUsuario='" + apellidoUsuario + '\'' +
-                ", rutUsuario='" + rutUsuario + '\'' +
                 ", telefonoUsuario='" + telefonoUsuario + '\'' +
                 ", cuentaUsuario=" + cuentaUsuario +
                 ", sesion=" + sesion +

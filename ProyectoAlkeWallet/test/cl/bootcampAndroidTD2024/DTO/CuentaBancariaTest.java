@@ -52,7 +52,7 @@ class CuentaBancariaTest {
     }
 
     @Test
-    public void testRetiroDineroSaldoNegativo() {
+    public void testRetiroDineroSaldNegativo() {
         double saldoInicial = 1000.0; // Supongamos que el saldo inicial es 1000
         cuentaBancaria.setSaldo(saldoInicial); // Establece el saldo inicial
         double cantidadRetirada = -500.0; // Cantidad a retirar (mayor que el saldo inicial)

@@ -11,7 +11,7 @@ class UsuarioTest {
 
     @BeforeEach
     public void configuracion(){
-        usuariotest = new Usuario(1,"Homero","Simpson","11111111-1","+56963268745", new CuentaBancaria(),new Sesion("homero@correo.cl","homero123")); // Crear un usuario con las credenciales válidas
+        usuariotest = new Usuario("11111111-1","Homero","Simpson","+56963268745", new CuentaBancaria(),new Sesion("homero@correo.cl","homero123")); // Crear un usuario con las credenciales válidas
     }
 
     @Test
