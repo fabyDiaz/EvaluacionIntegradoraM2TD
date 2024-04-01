@@ -47,7 +47,7 @@ public class Aplicacion {
                 scanner.nextLine();
                 switch (opcion) {
                     case 1:
-                        System.out.println("Presiona \"s\" para salir");
+                        System.out.println("Presiona \"s\" si desea cancelar el registro");
                         nuevoUsuario=usuario.crearUsuario(scanner);
                        if(nuevoUsuario==null){
                            System.out.println("Registro cancelado.");

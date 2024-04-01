@@ -87,14 +87,18 @@ public class Usuario {
         Usuario usuario;
         System.out.println("Ingrese los siguientes datos");
         System.out.println("-------------------------------");
-        validarNombre(scanner);
-        if (nombreUsuario == null) {
+        String nombre = validarNombre(scanner);
+        if (nombre == null) {
+            System.out.println("Creación de usuario cancelada.");
             return null;
         }
-        validarApellido(scanner);
-        if(apellidoUsuario==null){
+        this.nombreUsuario = nombre;
+        String apellido = validarApellido(scanner);
+        if (apellido == null) {
+            System.out.println("Creación de usuario cancelada.");
             return null;
         }
+        this.apellidoUsuario = apellido;
         do{
             System.out.println("RUT (en formato xxxxxxxx-x: ");
             this.rutUsuario= scanner.nextLine();
@@ -102,17 +106,24 @@ public class Usuario {
         if(rutUsuario==null){
             return null;
         }
-        System.out.println("TELÉFONO");
-        this.telefonoUsuario = scanner.nextLine();
-
-        this.sesion = sesion1.crearCorreoyContrasena(scanner);
+        String telefono = validarTelefono(scanner);
+        if (telefono == null) {
+            System.out.println("Creación de usuario cancelada.");
+            return null;
+        }
+        this.telefonoUsuario = telefono;
+        Sesion nuevaSesion = sesion1.nuevaSesion(scanner);
+        if (nuevaSesion == null) {
+            System.out.println("Creación de usuario cancelada.");
+            return null;
+        }
+        this.sesion = nuevaSesion;
 
         this.cuentaUsuario = cuenta.crearCuenta(nombreCompleto().toUpperCase());
 
         usuario = new Usuario(rutUsuario, nombreUsuario, apellidoUsuario, telefonoUsuario, cuentaUsuario, sesion);
 
         return usuario;
-
     }
 
     /**
@@ -131,57 +142,53 @@ public class Usuario {
     /**
      * Valida que al momento de ingresar un nombre se ingrese caracteres válidos
      */
-    public void validarNombre(Scanner scanner){
-        boolean valido = false;
+    public String validarNombre(Scanner scanner) {
         String nombre;
+        boolean valido = false;
         do {
             System.out.println("NOMBRE:");
-            nombre= scanner.nextLine();
-            if(nombre.toLowerCase().equals("s")){
-                this.nombreUsuario = null;
-                return;
-            }else{
-                this.nombreUsuario=nombre;
-                if (this.nombreUsuario.matches("[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\\s]{2,30}")){
+            nombre = scanner.nextLine();
+            if (nombre.equalsIgnoreCase("s")) {
+                return null; // Si se ingresa "s", devuelve null
+            } else {
+                if (nombre.matches("[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\\s]{2,30}")) {
                     valido = true;
-                }else {
+                } else {
                     System.out.println("Formato incorrecto");
                 }
             }
-        }while (!valido);
-
+        } while (!valido);
+        return nombre;
     }
 
     /**
      * Valida que al momento de ingresar un apellido se ingrese caracteres válidos
      */
-    public void validarApellido(Scanner scanner){
-        boolean valido = false;
+    public String validarApellido(Scanner scanner) {
         String apellido;
+        boolean valido = false;
         do {
             System.out.println("APELLIDO:");
-            apellido= scanner.nextLine();
-            if(apellido.toLowerCase().equals("s")){
-                this.apellidoUsuario = null;
-                return;
-            }else{
-                this.apellidoUsuario=apellido;
+            apellido = scanner.nextLine();
+            if (apellido.equalsIgnoreCase("s")) {
+                return null; // Si se ingresa "s", devuelve null
+            } else {
+                if (apellido.matches("[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\\s]{2,30}")) {
+                    valido = true;
+                } else {
+                    System.out.println("Formato incorrecto");
+                }
             }
-            if (this.apellidoUsuario.matches("[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]{2,30}")){
-                valido = true;
-            }else {
-                System.out.println("Formato incorrecto");
-            }
-        }while (!valido);
+        } while (!valido);
+        return apellido;
     }
-
 
     /**
      *  Valida rut de la forma XXXXXXXX-X
      */
     public boolean validarRut ( String rut ) {
 
-        if (rut.toLowerCase().equals("s")){
+        if (rut.equalsIgnoreCase("s")){
             this.rutUsuario = null;
             return true;
         }else{
@@ -201,6 +208,24 @@ public class Usuario {
         for (;T!=0;T=(int) Math.floor(T/=10))
             S=(S+T%10*(9-M++%6))%11;
         return ( S > 0 ) ? String.valueOf(S-1) : "k";
+    }
+
+    public String validarTelefono(Scanner scanner) {
+        String telefono;
+        boolean valido;
+        do {
+            System.out.println("TELÉFONO:");
+            telefono = scanner.nextLine();
+            if (telefono.equalsIgnoreCase("s")) {
+                return null; // Devuelve null si se ingresa "s"
+            } else if (telefono.matches("^[1-9][0-9]{8}$")) {
+                valido = true;
+            } else {
+                System.out.println("Número de teléfono no válido. Debe tener 9 dígitos.");
+                valido = false;
+            }
+        } while (!valido);
+        return telefono;
     }
     public void realizarTransferenciaBancaria(Scanner scanner, Usuario usuarioDestinatario){
         double montoDestinatario;

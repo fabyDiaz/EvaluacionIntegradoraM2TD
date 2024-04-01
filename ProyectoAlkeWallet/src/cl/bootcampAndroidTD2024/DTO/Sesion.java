@@ -46,23 +46,27 @@ public class Sesion {
     /**
      * Valida que usuario ingrese un correo con el formato correcto, de lo contrario lo volverá a pedir.
      */
-    public void valiarEmail(Scanner scanner) {
+    private String validarEmail(Scanner scanner) {
         // Patrón para validar el email
         Matcher matcher;
         Pattern pattern = Pattern
                 .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
+        String email;
         do {
             System.out.println("EMAIL:");
-            this.emailUsuario = scanner.nextLine();
-            matcher = pattern.matcher(emailUsuario);
+            email = scanner.nextLine();
+            if (email.equalsIgnoreCase("s")) {
+                return null; // Devuelve null si se ingresa "s"
+            }
+            matcher = pattern.matcher(email);
             if (!matcher.matches()) {
                 System.out.println("El correo electrónico no es válido.");
             }
 
         } while (!matcher.matches());
-
+        return email;
     }
     /**
      * Permite al Usuario crear una nueva cuenta de Usuario.
@@ -70,18 +74,32 @@ public class Sesion {
      *
      * @return Sesion
      */
-    public Sesion crearCorreoyContrasena(Scanner scanner) {
-        String c;
-        Boolean valido=false;
-        valiarEmail(scanner);
+    private String validarContrasena(Scanner scanner) {
+        String contrasena;
         do {
-            System.out.println("Ingrese una contraseña (debe tener al menos 6 caracteres y contener al menos una letra y un número):");
-            c = scanner.nextLine();
-            if(c.length() >= 8 && c.matches(".*[a-zA-Z]+.*") && c.matches(".*\\d+.*")){
-                valido = true;
+            System.out.println("CONTRASEÑA:");
+            contrasena = scanner.nextLine();
+            if (contrasena.equalsIgnoreCase("s")) {
+                return null; // Devuelve null si se ingresa "s"
             }
-        } while (!valido);
-        return new Sesion(this.emailUsuario, c);
+            // Validación adicional de la contraseña según tus criterios
+            if (contrasena.length() >= 6 && contrasena.matches(".*[a-zA-Z]+.*") && contrasena.matches(".*\\d+.*")) {
+                return contrasena;
+            } else {
+                System.out.println("La contraseña debe tener al menos 6 caracteres.");
+            }
+        } while (true);
+    }
+
+    public Sesion nuevaSesion(Scanner scanner){
+        String email = validarEmail(scanner);
+        String contrasena = validarContrasena(scanner);
+
+        if(email==null || contrasena==null){
+            return null;
+        }else{
+            return new Sesion(email, contrasena);
+        }
     }
 
     public Sesion prueba() {
