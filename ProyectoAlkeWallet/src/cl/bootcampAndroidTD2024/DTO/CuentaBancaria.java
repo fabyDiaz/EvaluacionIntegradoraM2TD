@@ -73,8 +73,7 @@ public class CuentaBancaria {
 
     /**
      * Método que permite ingresar dinero a la cuenta bancaria
-     * Además crea un movimiento bancario donde guarda la fecha del depósito,
-     * el tipo "Depósito" y el dinero ingresado.
+     * Además crea un movimiento bancario donde guarda la fecha del depósito, el tipo y el dinero ingresado.
      * Finalmente muestre el saldo actualizado.
      * @param dinero
      */
@@ -86,15 +85,13 @@ public class CuentaBancaria {
             Date fechaActual = new Date();
             movimientos.add(new MovimientosBancarios(formato.format(fechaActual),tipoIngresoSalidaDinero(tipo),dinero));
             this.saldo += dinero;
-            //System.out.println("Tu saldo actual es: "+formatearMoneda(saldo));
         }
     }
 
 
     /**
      * Método que permite reitrar dinero a la cuenta bancaria
-     * Además crea un movimiento bancario donde guarda la fecha del retiro,
-     * el tipo "Retiro" y el dinero que quiere retirar.
+     * Además crea un movimiento bancario donde guarda la fecha del retiro,el tipo y el dinero que quiere retirar.
      * Finalmente muestre el saldo actualizado.
      * @param dinero
      */
@@ -108,10 +105,15 @@ public class CuentaBancaria {
             Date fechaActual = new Date();
             this.movimientos.add(new MovimientosBancarios(formato.format(fechaActual),tipoIngresoSalidaDinero(tipo),dinero*(-1)));
             this.saldo-=dinero;
-           // System.out.println("EL retiro se ha realizado con exito");
         }
     }
 
+    /**
+     * Muesntra el tipo de movimiento dependideno del número inresado
+     * 1. Deósito, 2. Retiro, 3. Transferencia
+     * @param tipo
+     * @return
+     */
     private String tipoIngresoSalidaDinero (int tipo){
         if(tipo== 1){
             return "Depósito";

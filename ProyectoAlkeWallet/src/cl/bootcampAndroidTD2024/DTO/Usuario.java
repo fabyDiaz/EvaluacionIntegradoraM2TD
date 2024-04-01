@@ -72,15 +72,18 @@ public class Usuario {
         this.sesion = sesion;
     }
 
+    /**
+     *
+     * @return nombreCompleto
+     */
     public String nombreCompleto(){
         return this.nombreUsuario + " " + this.apellidoUsuario;
     }
 
     /**
-     * Método que solicita los datos necesarios para crear un nuevo cliente
-     * @return nuevo cliente
+     * Método que solicita los datos necesarios para crear un nuevo usuario en la app
+     * @return nuevo usuario
      */
-
     public Usuario crearUsuario(Scanner scanner) {
         Sesion sesion1= new Sesion();
         CuentaBancaria cuenta = new CuentaBancaria();
@@ -100,7 +103,7 @@ public class Usuario {
         }
         this.apellidoUsuario = apellido;
         do{
-            System.out.println("RUT (en formato xxxxxxxx-x: ");
+            System.out.println("RUT (en formato xxxxxxxx-x): ");
             this.rutUsuario= scanner.nextLine();
         }while(validarRut(rutUsuario)==false);
         if(rutUsuario==null){
@@ -140,7 +143,10 @@ public class Usuario {
     }
 
     /**
-     * Valida que al momento de ingresar un nombre se ingrese caracteres válidos
+     * Valida que al ingresar el nombre se ingresen caracteres válidos con un minimo de 2 caracteres y un máximo de 30
+     * Si el usuario no desea continuar con el registo debe presionar "s" y devuelve null
+     * @param scanner
+     * @return nombre del usuario
      */
     public String validarNombre(Scanner scanner) {
         String nombre;
@@ -162,7 +168,10 @@ public class Usuario {
     }
 
     /**
-     * Valida que al momento de ingresar un apellido se ingrese caracteres válidos
+     * Valida que al ingresar el apellido se ingresen caracteres válidos con un minimo de 2 caracteres y un máximo de 30
+     * Si el usuario no desea continuar con el registo debe presionar "s" y devuelve null
+     * @param scanner
+     * @return apellido del usuario
      */
     public String validarApellido(Scanner scanner) {
         String apellido;
@@ -184,7 +193,9 @@ public class Usuario {
     }
 
     /**
-     *  Valida rut de la forma XXXXXXXX-X
+     * Valida rut de la forma XXXXXXXX-X y que se ingrese un digito verificador válido
+     * @param rut
+     * @return
      */
     public boolean validarRut ( String rut ) {
 
@@ -201,7 +212,9 @@ public class Usuario {
     }
 
     /**
-     * Valida el dígito verificador
+     * Valida el dígito verificador válido
+     * @param rut
+     * @return
      */
     public String dv ( String rut ) {
         Integer M=0,S=1,T=Integer.parseInt(rut);
@@ -210,6 +223,12 @@ public class Usuario {
         return ( S > 0 ) ? String.valueOf(S-1) : "k";
     }
 
+    /**
+     * Valida que al ingresar el teléfono se ingresen números válidos con un máximo de 9 números que se alamacenan en un String
+     * Si el usuario no desea continuar con el registo debe presionar "s" y devuelve null
+     * @param scanner
+     * @return núemro teléfonico del usuario
+     */
     public String validarTelefono(Scanner scanner) {
         String telefono;
         boolean valido;
@@ -227,6 +246,14 @@ public class Usuario {
         } while (!valido);
         return telefono;
     }
+
+    /**
+     * Si existe el usuario en la lista, mustra sus datos y solicita el Monto a transferir
+     * Verifica que se ingrese un monto válido a transferir
+     * Solicita nuevamente la clave para confirmar la transferencia
+     * @param scanner, Usuario
+     * @param usuarioDestinatario
+     */
     public void realizarTransferenciaBancaria(Scanner scanner, Usuario usuarioDestinatario){
         double montoDestinatario;
         String contrasena;

@@ -32,10 +32,8 @@ public class Sesion {
         this.contrasena = contrasena;
     }
 
-   // Scanner scanner = new Scanner(System.in);
     /**
-     * Devuelve verdadero su la contraseña ingresada por el usuario en la aplicación coincide con la encontró en la lista
-     *
+     * Devuelve verdadero si la contraseña ingresada por el usuario en la aplicación coincide con la encontró en la lista
      * @param contrasena
      * @return
      */
@@ -43,8 +41,12 @@ public class Sesion {
 
         return this.contrasena.equals(contrasena);
     }
+
     /**
-     * Valida que usuario ingrese un correo con el formato correcto, de lo contrario lo volverá a pedir.
+     * Valida que el usuario ingrese un correo con el formato correcto, de lo contrario lo volverá a pedir.
+     * Si el usuario no desea continuar con el registro debe ingresar "s" y el método devolvera un null
+     * @param scanner
+     * @return email
      */
     private String validarEmail(Scanner scanner) {
         // Patrón para validar el email
@@ -68,11 +70,12 @@ public class Sesion {
         } while (!matcher.matches());
         return email;
     }
+
     /**
-     * Permite al Usuario crear una nueva cuenta de Usuario.
-     * Solicita correo y contraseña.
-     *
-     * @return Sesion
+     * Valida que el usuario ingrese una contraeña con las condiciones indicadas, de lo contrario lo volverá a pedir.
+     * Si el usuario no desea continuar con el registro debe ingresar "s" y el método devolvera un null
+     * @param scanner
+     * @return contrasena
      */
     private String validarContrasena(Scanner scanner) {
         String contrasena;
@@ -86,11 +89,16 @@ public class Sesion {
             if (contrasena.length() >= 6 && contrasena.matches(".*[a-zA-Z]+.*") && contrasena.matches(".*\\d+.*")) {
                 return contrasena;
             } else {
-                System.out.println("La contraseña debe tener al menos 6 caracteres.");
+                System.out.println("La contraseña debe tener al menos 6 caracteres y contener al menos una letra y un número");
             }
         } while (true);
     }
 
+    /**
+     * valida que el email y la contraseña sea distinto de null para retornar una sesión válida.
+     * @param scanner
+     * @return nuevaSesion
+     */
     public Sesion nuevaSesion(Scanner scanner){
         String email = validarEmail(scanner);
         String contrasena = validarContrasena(scanner);
@@ -102,9 +110,6 @@ public class Sesion {
         }
     }
 
-    public Sesion prueba() {
-        return new Sesion("email@correo.cl", "123");
-    }
 
     @Override
     public String toString() {

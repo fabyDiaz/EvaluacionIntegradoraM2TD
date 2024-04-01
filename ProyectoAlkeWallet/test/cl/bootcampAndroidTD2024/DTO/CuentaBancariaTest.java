@@ -14,6 +14,10 @@ class CuentaBancariaTest {
         cuentaBancaria.setSaldo(5000);
     }
 
+    /**
+     * Simulamos que ingresmos una cantidad válida de dinero.
+     * Comprobamos que el saldo es el esperado
+     */
     @Test
     public void testIngresoDinero() {
         double saldoInicial = cuentaBancaria.getSaldo(); // Obtiene el saldo inicial
@@ -22,6 +26,11 @@ class CuentaBancariaTest {
         double saldoEsperado = saldoInicial + cantidadIngresada; // Calcula el saldo esperado
         assertEquals(saldoEsperado, cuentaBancaria.getSaldo(), 0.001); // Comprueba que el saldo es el esperado
     }
+
+    /**
+     * Simulamos que ingresmos una cantidad no válida de dinero, en este caso una cantidad negativa.
+     * Verifica que el saldo no cambie después de intentar ingresar una cantidad negativa
+     */
     @Test
     public void testIngresoDineroCantidadNegativa() {
         double saldoInicial = cuentaBancaria.getSaldo(); // Saldo inicial antes del ingreso
@@ -31,6 +40,10 @@ class CuentaBancariaTest {
         assertEquals(saldoInicial, cuentaBancaria.getSaldo(), 0.001);
     }
 
+    /**
+     * Simulamos que ingresmos una cantidad válida de dinero que queremos retirar
+     * Verifica que el saldo sea el esperado
+     */
     @Test
     public void testRetiroDineroSaldoSuficiente() {
         double saldoInicial = cuentaBancaria.getSaldo(); // Supongamos que el saldo inicial es 1000
@@ -41,6 +54,10 @@ class CuentaBancariaTest {
         assertEquals(saldoEsperado, cuentaBancaria.getSaldo(), 0.001); // Verifica que el saldo sea el esperado
     }
 
+    /**
+     * Simulamos que ingresmos una cantidad no válida de dinero, en este caso retirar un cantidad superior al saldo actual
+     * Verificamos que el saldo no cambie después de intentar retirar más dinero del disponible
+     */
     @Test
     public void testRetiroDineroSaldoInsuficiente() {
         double saldoInicial = 1000.0; // Supongamos que el saldo inicial es 1000
@@ -51,6 +68,10 @@ class CuentaBancariaTest {
         assertEquals(saldoInicial, cuentaBancaria.getSaldo(), 0.001);
     }
 
+    /**
+     * Simulamos que ingresmos una cantidad no válida de dinero, en este caso retirar un cantidad negativa de dinero
+     * Verificamos que el saldo no cambie después de intentar retirar una cantidad negativa de dinero
+     */
     @Test
     public void testRetiroDineroSaldNegativo() {
         double saldoInicial = 1000.0; // Supongamos que el saldo inicial es 1000
@@ -61,6 +82,9 @@ class CuentaBancariaTest {
         assertEquals(saldoInicial, cuentaBancaria.getSaldo(), 0.001);
     }
 
+    /**
+     * Verificamos que el resultado coincida con el formato esperado en pesos chilenos
+     */
     @Test
     public void testFormatearMoneda() {
         double monto = 123456.78; //supongamos un monto en double

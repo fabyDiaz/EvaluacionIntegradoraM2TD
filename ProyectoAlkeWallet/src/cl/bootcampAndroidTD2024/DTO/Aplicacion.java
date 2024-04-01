@@ -100,7 +100,7 @@ public class Aplicacion {
     /**
      *  Verifica que el correo y la contraseña ingresada ya se encuntra registrado.
      *  Si lo encuntra devuelve al Cliente
-     * @return retorna el cliente luego de verificar que el correo y la contraseña ingresada sea correcta
+     * @return TRUE si el usuario existe en la lista y  el correo y la contraseña ingresada son correctas
      *
      */
     public boolean inicioSesion() {
@@ -137,11 +137,11 @@ public class Aplicacion {
     }
     /**
      *Valida si el correo y contraseña ingresado coincide con el cliente de la lista.
-     * En caso que coincidan, devuelve el cliente.
+     * En caso que coincidan, devuelve al Usuario.
      * @param correo
      * @param contrasena
      * @param usuario
-     * @return
+     * @return Usuario
      */
     public Usuario validarCredenciales(String correo, String contrasena, Usuario usuario) {
         if (correo.equals(usuario.getSesion().getEmailUsuario()) && usuario.getSesion().validarContrasena(contrasena)) {
@@ -151,7 +151,7 @@ public class Aplicacion {
     }
 
     /**
-     * Este es el menú que se muestra una vez que el cliente haya ingresado a su cuenta
+     * Este es el menú que se muestra una vez que el usuario haya ingresado a su cuenta
      */
     public void menuSesionIniciada() {
         int opcion=0;

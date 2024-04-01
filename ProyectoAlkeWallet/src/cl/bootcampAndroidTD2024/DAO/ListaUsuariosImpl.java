@@ -9,16 +9,27 @@ import java.util.List;
 public class ListaUsuariosImpl implements IListaUsuarios {
     private List<Usuario> listaUsuarios = new ArrayList();
 
+    /**
+     * Creamos una lista de de usuarios con algunos datos ingresados a modo de prueba para simular una base de datos.
+     */
     public ListaUsuariosImpl() {
         this.listaUsuarios.add(new Usuario("12345678-5","Homero","Simpson","987654321", new CuentaBancaria(),new Sesion("homero@correo.cl","homero123")));
         this.listaUsuarios.add(new Usuario("11111111-1","Admin","Ejemplo","912345678", new CuentaBancaria(),new Sesion("admin@correo.cl","admin123")));
     }
 
+    /**
+     * Permite agregar un usuario a la lista
+     * @param usuario
+     */
     @Override
     public void agregarUsuario(Usuario usuario) {
         listaUsuarios.add(usuario);
     }
 
+    /**
+     * Permite actualizar los datos del usuario de la lista
+     * @param usuarioActualizado
+     */
     @Override
     public void actualizarUsuario(Usuario usuarioActualizado) {
         for (Usuario u : listaUsuarios) {
@@ -30,6 +41,10 @@ public class ListaUsuariosImpl implements IListaUsuarios {
         }
     }
 
+    /**
+     * Permite eliminar un Usuario de la lista
+     * @param rut
+     */
     @Override
     public void eliminarUsuario(String rut) {
         for (int i = 0; i < listaUsuarios.size(); i++) {
@@ -40,6 +55,12 @@ public class ListaUsuariosImpl implements IListaUsuarios {
         }
     }
 
+    /**
+     * Permite Obtener un Usuario de la lista, comparando el rut y el correo
+     * @param rut
+     * @param correo
+     * @return un usuario
+     */
     public Usuario obtenerUsuario(String rut, String correo) {
         for (Usuario u : listaUsuarios) {
             if (u.getRutUsuario().equals(rut) || u.getSesion().getEmailUsuario().equals(correo)) {
@@ -48,6 +69,12 @@ public class ListaUsuariosImpl implements IListaUsuarios {
         }
         return null;
     }
+
+    /**
+     * Permite obtener un usuario de la lista considerando solo el correo.
+     * @param correo
+     * @return un uaurio
+     */
     @Override
     public Usuario obtenerUsuario(String correo) {
         for (Usuario u : listaUsuarios) {
@@ -58,6 +85,10 @@ public class ListaUsuariosImpl implements IListaUsuarios {
         return null;
     }
 
+    /**
+     * Permite obtener todos los elementos de la lista
+     * @return la lista completa de usuarios
+     */
     @Override
     public List<Usuario> obtenerTodosUsuarios() {
         return listaUsuarios;
