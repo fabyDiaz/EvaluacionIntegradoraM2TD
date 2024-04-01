@@ -47,6 +47,7 @@ public class Aplicacion {
                 System.out.println("    3. Salir");
                 System.out.println("    Selecciona una opción");
                 opcion = scanner.nextInt();
+                System.out.println("Presione Enter para continuar...");
                 scanner.nextLine();
                 switch (opcion) {
                     case 1:
@@ -74,7 +75,6 @@ public class Aplicacion {
                     case 3:
                         System.out.println("Hasta la proxima!");
                         entradaValida = false;
-                        scanner.nextLine();
                         break;
                     default:
                         System.out.println("\u001B[31m" +"Opción no válida. Por favor, ingrese un número válido.");
@@ -238,17 +238,20 @@ public class Aplicacion {
                             break;
                         case 8:
                             System.out.println("Has cerrado la sesión");
+                            System.out.println("Presione Enter para continuar...");
                             entradaValida = false;
                             break;
                         default:
                             System.out.println("\u001B[31m" +"Opción no válida. Por favor, ingrese un número válido.");
                             System.out.println("\u001B[0m");
+                            System.out.println("Presione Enter para continuar...");
                             scanner.nextLine();
                             break;
                     }
                 }catch (InputMismatchException e){
                     System.out.println("\u001B[31m" +"Error: Ingrese un número entero válido.");
                     System.out.println("\u001B[0m");
+                    System.out.println("Presione Enter para continuar...");
                     scanner.nextLine();
                 }
             } while (entradaValida);
