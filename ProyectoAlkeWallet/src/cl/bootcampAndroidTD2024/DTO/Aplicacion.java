@@ -44,8 +44,7 @@ public class Aplicacion {
                 bienvenida();
                 System.out.println("    1. Registrar");
                 System.out.println("    2. Iniciar Sesión");
-                System.out.println("    3. Mostrar lista clientes");
-                System.out.println("    4. Salir");
+                System.out.println("    3. Salir");
                 System.out.println("    Selecciona una opción");
                 opcion = scanner.nextInt();
                 scanner.nextLine();
@@ -73,10 +72,6 @@ public class Aplicacion {
                         scanner.nextLine();
                         break;
                     case 3:
-                        System.out.println(listaUsuarios.obtenerTodosUsuarios());
-                        scanner.nextLine();
-                        break;
-                    case 4:
                         System.out.println("Hasta la proxima!");
                         entradaValida = false;
                         scanner.nextLine();
