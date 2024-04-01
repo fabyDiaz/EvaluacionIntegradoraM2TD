@@ -32,7 +32,7 @@ public class Sesion {
         this.contrasena = contrasena;
     }
 
-    Scanner scanner = new Scanner(System.in);
+   // Scanner scanner = new Scanner(System.in);
     /**
      * Devuelve verdadero su la contraseña ingresada por el usuario en la aplicación coincide con la encontró en la lista
      *
@@ -46,8 +46,7 @@ public class Sesion {
     /**
      * Valida que usuario ingrese un correo con el formato correcto, de lo contrario lo volverá a pedir.
      */
-    public void valiarEmail() {
-        Scanner sc = new Scanner(System.in);
+    public void valiarEmail(Scanner scanner) {
         // Patrón para validar el email
         Matcher matcher;
         Pattern pattern = Pattern
@@ -56,11 +55,10 @@ public class Sesion {
 
         do {
             System.out.println("EMAIL:");
-            this.emailUsuario = sc.nextLine();
+            this.emailUsuario = scanner.nextLine();
             matcher = pattern.matcher(emailUsuario);
             if (!matcher.matches()) {
                 System.out.println("El correo electrónico no es válido.");
-                // System.out.println("El correo electrónico es válido.");
             }
 
         } while (!matcher.matches());
@@ -72,11 +70,10 @@ public class Sesion {
      *
      * @return Sesion
      */
-    public Sesion crearCorreoyContrasena() {
-        Scanner scanner = new Scanner(System.in);
+    public Sesion crearCorreoyContrasena(Scanner scanner) {
         String c;
         Boolean valido=false;
-        valiarEmail();
+        valiarEmail(scanner);
         do {
             System.out.println("Ingrese una contraseña (debe tener al menos 6 caracteres y contener al menos una letra y un número):");
             c = scanner.nextLine();
@@ -84,10 +81,6 @@ public class Sesion {
                 valido = true;
             }
         } while (!valido);
-        //return contraseña.length() >= 8 && contraseña.matches(".*[a-zA-Z]+.*") && contraseña.matches(".*\\d+.*");
-
-        /*System.out.println("CREA UNA CONTRASEÑA");
-        c = scanner.nextLine();*/
         return new Sesion(this.emailUsuario, c);
     }
 

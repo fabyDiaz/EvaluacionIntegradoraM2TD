@@ -1,6 +1,4 @@
 package cl.bootcampAndroidTD2024.DTO;
-
-import cl.bootcampAndroidTD2024.DAO.IListaUsuarios;
 import cl.bootcampAndroidTD2024.DAO.ListaUsuariosImpl;
 
 import java.util.InputMismatchException;
@@ -19,6 +17,13 @@ public class Aplicacion {
         System.out.println("*     Bienvenido a Alke Wallet      *");
         System.out.println("*  Tu solución digital financiera   *");
         System.out.println("*************************************");
+    }
+    public void mensajeTransferencias(){
+        System.out.println("************************************************************************");
+        System.out.println("*               Aquí podrás transferir dinero                          *");
+        System.out.println("*   Por el momento solo se puede transferir entre cuentas AlkeWallet   *");
+        System.out.println("* Próximamente podrás realizar transferencia a otras cuentas bancarias *");
+        System.out.println("************************************************************************");
     }
 
     /**
@@ -39,9 +44,15 @@ public class Aplicacion {
                 System.out.println("    4. Salir");
                 System.out.println("    Selecciona una opción");
                 opcion = scanner.nextInt();
+                scanner.nextLine();
                 switch (opcion) {
                     case 1:
-                        nuevoUsuario=usuario.crearUsuario();
+                        System.out.println("Presiona \"s\" para salir");
+                        nuevoUsuario=usuario.crearUsuario(scanner);
+                       if(nuevoUsuario==null){
+                           System.out.println("Registro cancelado.");
+                           break;
+                       }
                         if(listaUsuarios.obtenerUsuario(nuevoUsuario.getRutUsuario(),nuevoUsuario.getSesion().getEmailUsuario())!=null){
                             System.out.println("\u001B[31m" +"El usuario ya se encuentra registrado ");
                             System.out.println("\u001B[0m");
@@ -50,6 +61,7 @@ public class Aplicacion {
                             System.out.println("\u001B[32m" +"Registro Exitoso!");
                             System.out.println("\u001B[0m");
                         }
+                        System.out.println("Presione Enter para continuar...");
                         scanner.nextLine();
                         break;
                     case 2:
@@ -91,7 +103,9 @@ public class Aplicacion {
         String correo, contrasena;
         int intentos = 0;
         boolean loginExitoso = false;
-
+        System.out.println("*************************************");
+        System.out.println("*        Inicio de Sesión           *");
+        System.out.println("*************************************");
         while (intentos < 3 && !loginExitoso) {
             System.out.println("Ingrese su correo electrónico:");
             correo = scanner.nextLine();
@@ -105,7 +119,6 @@ public class Aplicacion {
             if (usuario != null) {
                 loginExitoso = true;
                 System.out.println("");
-                System.out.println("=================================");
                 System.out.println("\u001B[32m" +"Inicio de sesión exitoso. ¡Bienvenido, " + usuario.getNombreUsuario() + "!");
                 System.out.println("\u001B[0m");
                 System.out.println("Presione Enter para continuar...");
@@ -142,17 +155,18 @@ public class Aplicacion {
         double dinero;
         scanner.nextLine();
         if(inicioSesion()==true){
+            System.out.println("Presione Enter para continuar...");
             do {
                 //Limpia la terinal
                 System.out.print("\033[H\033[2J");
                 System.out.flush();
                 //Presentción del menú
                 System.out.println("");
-                System.out.println("---------------------------------");
+                System.out.println("*************************************");
                 System.out.println("BIENVENIDO/A "+usuario.getNombreUsuario().toUpperCase());
-                System.out.println("---------------------------------");
+                System.out.println("*************************************");
                 System.out.println("SALDO: "+usuario.getCuentaUsuario().formatearMoneda(usuario.getCuentaUsuario().getSaldo()));
-                System.out.println("---------------------------------");
+                System.out.println("*************************************");
                 try {
                     System.out.println("Selecciona una opción:\n"+
                             "   1.-    Ver mis datos\n"+
@@ -184,12 +198,19 @@ public class Aplicacion {
                             }
                             dinero=scanner.nextDouble();
                             scanner.nextLine();
-                            usuario.getCuentaUsuario().ingresoDinero(dinero);
+                            usuario.getCuentaUsuario().ingresoDinero(dinero,1);
+                            System.out.println("Tu saldo actual es "+ usuario.getCuentaUsuario().formatearMoneda(usuario.getCuentaUsuario().getSaldo()));
                             System.out.println("Presione Enter para continuar...");
                             scanner.nextLine();
                             break;
                         case 4:
-                            System.out.println("aquí podrás transferir dinero");
+                            Usuario usuarioDestinatario;
+                            mensajeTransferencias();
+                            System.out.println("CORREO ELECTRÓNICO");
+                            String correoDestinatario = scanner.nextLine();
+                            usuarioDestinatario=listaUsuarios.obtenerUsuario(correoDestinatario);
+                            usuario.realizarTransferenciaBancaria(scanner, usuarioDestinatario);
+                            System.out.println("Tu saldo actual es "+ usuario.getCuentaUsuario().getSaldo());
                             System.out.println("Presione Enter para continuar...");
                             scanner.nextLine();
                             break;
@@ -201,7 +222,8 @@ public class Aplicacion {
                             }
                             dinero=scanner.nextDouble();
                             scanner.nextLine();
-                            usuario.getCuentaUsuario().retiroDinero(dinero);
+                            usuario.getCuentaUsuario().retiroDinero(dinero,2);
+                            System.out.println("Tu saldo actual es "+usuario.getCuentaUsuario().getSaldo());
                             System.out.println("Presione Enter para continuar...");
                             scanner.nextLine();
                             break;

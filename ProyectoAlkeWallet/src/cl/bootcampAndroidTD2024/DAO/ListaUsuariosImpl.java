@@ -40,7 +40,7 @@ public class ListaUsuariosImpl implements IListaUsuarios {
         }
     }
 
-    @Override
+    /*@Override
     public Usuario obtenerUsuario(String rut) {
         for (Usuario u : listaUsuarios) {
             if (u.getRutUsuario().equals(rut)) {
@@ -48,11 +48,20 @@ public class ListaUsuariosImpl implements IListaUsuarios {
             }
         }
         return null;
-    }
+    }*/
 
     public Usuario obtenerUsuario(String rut, String correo) {
         for (Usuario u : listaUsuarios) {
             if (u.getRutUsuario().equals(rut)&& u.getSesion().getEmailUsuario().equals(correo)) {
+                return u;
+            }
+        }
+        return null;
+    }
+    @Override
+    public Usuario obtenerUsuario(String correo) {
+        for (Usuario u : listaUsuarios) {
+            if (u.getSesion().getEmailUsuario().equals(correo)) {
                 return u;
             }
         }

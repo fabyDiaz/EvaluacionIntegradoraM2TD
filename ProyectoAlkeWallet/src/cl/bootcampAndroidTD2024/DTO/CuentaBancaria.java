@@ -3,26 +3,26 @@ package cl.bootcampAndroidTD2024.DTO;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class CuentaBancaria {
-    private int numeroCuenta;
+    private long numeroCuenta;
     private String titular;
+
+    private String tipoCuenta;
     private double saldo;
     private List<MovimientosBancarios> movimientos = new ArrayList<>();
 
     public CuentaBancaria() {
     }
-    public CuentaBancaria(int numeroCuenta, String titular) {
+    public CuentaBancaria(long numeroCuenta, String titular, String tipoCuenta) {
         this.numeroCuenta = numeroCuenta;
         this.titular = titular;
+        this.tipoCuenta=tipoCuenta;
         this.saldo = 0;
     }
 
-    public int getNumeroDeCuenta() {
+    public long getNumeroDeCuenta() {
         return numeroCuenta;
     }
 
@@ -53,8 +53,10 @@ public class CuentaBancaria {
      * @return CuentaBancaria
      */
     public CuentaBancaria crearCuenta(String nombreCompleto){
-        int numeroCuenta = (int)Math.random()*100000;
-        return new CuentaBancaria(numeroCuenta,nombreCompleto);
+        Random random = new Random();
+        int numero = 100000 + random.nextInt(900000); // Número de cuenta de 5 dígitos
+        numeroCuenta = numero;
+        return new CuentaBancaria(numeroCuenta,nombreCompleto,"Vista");
     }
 
     /**
@@ -76,15 +78,15 @@ public class CuentaBancaria {
      * Finalmente muestre el saldo actualizado.
      * @param dinero
      */
-    public void ingresoDinero(double dinero){;
+    public void ingresoDinero(double dinero, int tipo){;
         if(dinero<0){
             System.out.println("No puede ingresar números negativos");
         }else{
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date fechaActual = new Date();
-            movimientos.add(new MovimientosBancarios(formato.format(fechaActual),"Depósito",dinero));
+            movimientos.add(new MovimientosBancarios(formato.format(fechaActual),tipoIngresoSalidaDinero(tipo),dinero));
             this.saldo += dinero;
-            System.out.println("Tu saldo actual es: "+formatearMoneda(saldo));
+            //System.out.println("Tu saldo actual es: "+formatearMoneda(saldo));
         }
     }
 
@@ -96,7 +98,7 @@ public class CuentaBancaria {
      * Finalmente muestre el saldo actualizado.
      * @param dinero
      */
-    public void retiroDinero(double dinero){
+    public void retiroDinero(double dinero, int tipo){
         if(dinero>saldo){
             System.out.println("No tiene saldo suficiente");
         }else if(dinero<0) {
@@ -104,11 +106,23 @@ public class CuentaBancaria {
         }else{
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date fechaActual = new Date();
-            this.movimientos.add(new MovimientosBancarios(formato.format(fechaActual),"Retiro",dinero*(-1)));
+            this.movimientos.add(new MovimientosBancarios(formato.format(fechaActual),tipoIngresoSalidaDinero(tipo),dinero*(-1)));
             this.saldo-=dinero;
-            System.out.println("Tu saldo actual es: "+ formatearMoneda(saldo));
+           // System.out.println("EL retiro se ha realizado con exito");
         }
+    }
 
+    public String tipoIngresoSalidaDinero (int tipo){
+        if(tipo== 1){
+            return "Ddepósito";
+        }
+        if(tipo== 2){
+            return "Retiro";
+        }
+        if(tipo== 3){
+            return "Transferencia";
+        }
+        return null;
     }
 
     /**
@@ -168,6 +182,7 @@ public class CuentaBancaria {
         cambio= Math.round((this.saldo/UF) * 100.0) / 100.0;
         System.out.printf("%-20s: %-20s | %-20s: %-10s\n", "Saldo en UF", cambio + " UF", "Tipo de cambio", UF + " UF");
     }
+
 
     @Override
     public String toString() {
