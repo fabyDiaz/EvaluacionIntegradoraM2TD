@@ -232,11 +232,13 @@ public class Usuario {
         String contrasena;
         if( usuarioDestinatario!=null){
             usuarioDestinatario.mostrarDatosUsuario();
-            System.out.println("MONTO: ");
+            System.out.println("\nMONTO A TRANSFERIR: ");
             montoDestinatario = scanner.nextDouble();
             scanner.nextLine();
             if(montoDestinatario>cuentaUsuario.getSaldo()){
                 System.out.println("No tiene saldo suficiente");
+            }else if (montoDestinatario<=0) {
+                System.out.println("El monto ingresado no es válido. Debe ser un monto mayor a cero");
             }else{
                 System.out.println("INGRESA TU CONTRASEÑA PARA CONFIRMAR");
                 contrasena = scanner.nextLine();
@@ -247,7 +249,7 @@ public class Usuario {
                     System.out.println("\u001B[0m");
                 }else{
                     System.out.println("\u001B[31m" +"Contraseña incorrecta");
-                    System.out.println("No se puedo realizar la transferencia");
+                    System.out.println("No se pudo realizar la transferencia");
                     System.out.println("\u001B[0m");
                 }
             }
@@ -256,7 +258,6 @@ public class Usuario {
             System.out.println("El correo ingresado no coincide con una cuenta existente en AlkeWallet");
         }
     }
-
 
 
     @Override

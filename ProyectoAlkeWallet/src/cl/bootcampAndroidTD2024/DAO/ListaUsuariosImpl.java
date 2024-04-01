@@ -10,8 +10,8 @@ public class ListaUsuariosImpl implements IListaUsuarios {
     private List<Usuario> listaUsuarios = new ArrayList();
 
     public ListaUsuariosImpl() {
-        this.listaUsuarios.add(new Usuario("12222222-2","Homero","Simpson","+56963268745", new CuentaBancaria(),new Sesion("homero@correo.cl","homero123")));
-        this.listaUsuarios.add(new Usuario("11111111-1","Admin","Ejemplo","+5612345678", new CuentaBancaria(),new Sesion("admin@correo.cl","admin123")));
+        this.listaUsuarios.add(new Usuario("12345678-5","Homero","Simpson","987654321", new CuentaBancaria(),new Sesion("homero@correo.cl","homero123")));
+        this.listaUsuarios.add(new Usuario("11111111-1","Admin","Ejemplo","912345678", new CuentaBancaria(),new Sesion("admin@correo.cl","admin123")));
     }
 
     @Override
@@ -35,24 +35,14 @@ public class ListaUsuariosImpl implements IListaUsuarios {
         for (int i = 0; i < listaUsuarios.size(); i++) {
             if (listaUsuarios.get(i).getRutUsuario().equals(rut)) {
                 listaUsuarios.remove(i);
-                break; // Termina el bucle después de eliminar el producto
+                break;
             }
         }
     }
 
-    /*@Override
-    public Usuario obtenerUsuario(String rut) {
-        for (Usuario u : listaUsuarios) {
-            if (u.getRutUsuario().equals(rut)) {
-                return u;
-            }
-        }
-        return null;
-    }*/
-
     public Usuario obtenerUsuario(String rut, String correo) {
         for (Usuario u : listaUsuarios) {
-            if (u.getRutUsuario().equals(rut)&& u.getSesion().getEmailUsuario().equals(correo)) {
+            if (u.getRutUsuario().equals(rut) || u.getSesion().getEmailUsuario().equals(correo)) {
                 return u;
             }
         }

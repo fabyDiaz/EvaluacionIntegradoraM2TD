@@ -16,9 +16,7 @@ class UsuarioTest {
 
     @Test
     public void testValidarRut_CasoExitoso() {
-        // Arrange
-        String rut = "11111111-1";
-        // Act
+       String rut = "11111111-1";
         boolean resultado = usuariotest.validarRut(rut);
 
         // Assert

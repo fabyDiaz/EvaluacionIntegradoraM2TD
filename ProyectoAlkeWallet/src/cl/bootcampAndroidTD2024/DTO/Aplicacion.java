@@ -18,6 +18,10 @@ public class Aplicacion {
         System.out.println("*  Tu solución digital financiera   *");
         System.out.println("*************************************");
     }
+
+    /**
+     * Mensaje que se muestra al querer realizar una transferencia bancaria una vez iniciada la sesión
+     */
     public void mensajeTransferencias(){
         System.out.println("************************************************************************");
         System.out.println("*               Aquí podrás transferir dinero                          *");
@@ -240,8 +244,6 @@ public class Aplicacion {
                         case 8:
                             System.out.println("Has cerrado la sesión");
                             entradaValida = false;
-                            System.out.println("Presione Enter para continuar...");
-                            scanner.nextLine();
                             break;
                         default:
                             System.out.println("\u001B[31m" +"Opción no válida. Por favor, ingrese un número válido.");

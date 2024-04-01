@@ -112,9 +112,9 @@ public class CuentaBancaria {
         }
     }
 
-    public String tipoIngresoSalidaDinero (int tipo){
+    private String tipoIngresoSalidaDinero (int tipo){
         if(tipo== 1){
-            return "Ddepósito";
+            return "Depósito";
         }
         if(tipo== 2){
             return "Retiro";
