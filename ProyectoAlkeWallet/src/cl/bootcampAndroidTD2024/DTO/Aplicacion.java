@@ -125,6 +125,9 @@ public class Aplicacion {
             // Validar usuario y contraseña
             for (int i = 0; i < listaUsuarios.obtenerTodosUsuarios().size(); i++) {
                 usuario = validarCredenciales(correo, contrasena, listaUsuarios.obtenerTodosUsuarios().get(i));
+                if (usuario != null) {
+                    break; // Salir del bucle si encontramos un usuario válido
+                }
             }
             if (usuario != null) {
                 loginExitoso = true;
@@ -281,6 +284,7 @@ public class Aplicacion {
                 //Limpia la terinal
                 System.out.print("\033[H\033[2J");
                 System.out.flush();
+
             } while (entradaValida);
         }
     }
