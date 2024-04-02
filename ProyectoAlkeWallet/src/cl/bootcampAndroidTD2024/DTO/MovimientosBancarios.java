@@ -1,5 +1,12 @@
 package cl.bootcampAndroidTD2024.DTO;
-
+/**
+ * Esta clase contiene la información relacionada con los movimientos de ingreso y egreso de dinero.
+ * Contiene los datos de la fecha y hora, el tipo de movimiento que puede ser: "Depósito", "Retiro" o "Transferencia"
+ * y el monto de ese movimiento.
+ * @author Fabiola Díaz <a href="https://github.com/fabyDiaz/EvaluacionIntegradoraM2TD">Github Fabiola Díaz</a>
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class MovimientosBancarios {
     private String fecha;
     private String tipo;
@@ -37,7 +44,6 @@ public class MovimientosBancarios {
     public void setMonto(double monto) {
         this.monto = monto;
     }
-
 
     @Override
     public String toString() {

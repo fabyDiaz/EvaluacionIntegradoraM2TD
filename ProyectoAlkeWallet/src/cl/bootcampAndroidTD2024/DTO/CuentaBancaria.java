@@ -4,7 +4,13 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
+/**
+ * Esta calse contiene la cuenta bancaria del cliente. La cuenta tiene un númer de cuenta, el títular, el tipo de cuenta
+ * que por defecto es una cuenta Vista, el saldo y los movimientos de ingreso y egreso de dinero.
+ * @author Fabiola Díaz <a href="https://github.com/fabyDiaz/EvaluacionIntegradoraM2TD">Github Fabiola Díaz</a>
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class CuentaBancaria {
     private long numeroCuenta;
     private String titular;
@@ -46,7 +52,6 @@ public class CuentaBancaria {
         this.saldo = saldo;
     }
 
-
     /**
      * Este método permite crear una cuenta bancaria
      * @param nombreCompleto
@@ -63,9 +68,6 @@ public class CuentaBancaria {
      * Muestra los datos relacioandos con la cuenta Bancaria
      */
     public void MostrarDatosCuenta(){
-        System.out.println("===============================");
-        System.out.println("Los datos son: ");
-        System.out.println("------------------------------");
         System.out.println("N° CUENTA: "+ numeroCuenta);
         System.out.println("TITULAR: "+ titular);
         System.out.println("SALDO: "+ formatearMoneda(saldo));
@@ -77,13 +79,13 @@ public class CuentaBancaria {
      * Finalmente muestre el saldo actualizado.
      * @param dinero
      */
-    public void ingresoDinero(double dinero, int tipo){;
+    public void ingresoDinero(double dinero, int tipoDeMovimiento){;
         if(dinero<0){
             System.out.println("No puede ingresar números negativos");
         }else{
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date fechaActual = new Date();
-            movimientos.add(new MovimientosBancarios(formato.format(fechaActual),tipoIngresoSalidaDinero(tipo),dinero));
+            movimientos.add(new MovimientosBancarios(formato.format(fechaActual),tipoIngresoSalidaDinero(tipoDeMovimiento),dinero));
             this.saldo += dinero;
         }
     }
@@ -95,7 +97,7 @@ public class CuentaBancaria {
      * Finalmente muestre el saldo actualizado.
      * @param dinero
      */
-    public void retiroDinero(double dinero, int tipo){
+    public void retiroDinero(double dinero, int tipoDeMovimiento){
         if(dinero>saldo){
             System.out.println("No tiene saldo suficiente");
         }else if(dinero<0) {
@@ -103,7 +105,7 @@ public class CuentaBancaria {
         }else{
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date fechaActual = new Date();
-            this.movimientos.add(new MovimientosBancarios(formato.format(fechaActual),tipoIngresoSalidaDinero(tipo),dinero*(-1)));
+            this.movimientos.add(new MovimientosBancarios(formato.format(fechaActual),tipoIngresoSalidaDinero(tipoDeMovimiento),dinero*(-1)));
             this.saldo-=dinero;
         }
     }
@@ -111,17 +113,17 @@ public class CuentaBancaria {
     /**
      * Muesntra el tipo de movimiento dependideno del número inresado
      * 1. Deósito, 2. Retiro, 3. Transferencia
-     * @param tipo
+     * @param tipoDeMovimiento
      * @return
      */
-    private String tipoIngresoSalidaDinero (int tipo){
-        if(tipo== 1){
+    public String tipoIngresoSalidaDinero (int tipoDeMovimiento){
+        if(tipoDeMovimiento== 1){
             return "Depósito";
         }
-        if(tipo== 2){
+        if(tipoDeMovimiento== 2){
             return "Retiro";
         }
-        if(tipo== 3){
+        if(tipoDeMovimiento== 3){
             return "Transferencia";
         }
         return null;
@@ -132,12 +134,12 @@ public class CuentaBancaria {
      */
     public void verMovimientosBancarios(){
         // Mostrar la lista de movimientos bancarios
-        System.out.println("---------------------------------");
+        System.out.println("------------------------------------------------");
         System.out.println("SALDO ACTUAL: " + formatearMoneda(saldo));
-        System.out.println("---------------------------------");
+        System.out.println("------------------------------------------------");
         System.out.println("Movimientos Bancarios:");
         System.out.printf("%-20s| %-15s| %-10s\n", "Fecha","Tipo","Monto");
-        System.out.println("-------------------------------------------------");
+        System.out.println("------------------------------------------------");
         for (MovimientosBancarios movimiento : movimientos) {
             System.out.printf("%-20s| %-15s| %-10s\n",movimiento.getFecha(), movimiento.getTipo(), formatearMoneda(movimiento.getMonto()));
         }

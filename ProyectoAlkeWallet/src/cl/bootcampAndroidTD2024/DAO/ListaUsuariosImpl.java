@@ -6,6 +6,14 @@ import cl.bootcampAndroidTD2024.DTO.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Esta clase contiene una lista de usuarios con sus métodos respectivos para agregar, modificar, eliminar y
+ * obtener un usuario o la lista completa.
+ * Pir defecto ya se incluyen dos usuarios para poder realizar pruebas en la aplicación.
+ * @author Fabiola Díaz <a href="https://github.com/fabyDiaz/EvaluacionIntegradoraM2TD">Github Fabiola Díaz</a>
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class ListaUsuariosImpl implements IListaUsuarios {
     private List<Usuario> listaUsuarios = new ArrayList();
 

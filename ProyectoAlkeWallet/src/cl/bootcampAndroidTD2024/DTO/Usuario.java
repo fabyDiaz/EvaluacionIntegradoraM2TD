@@ -3,7 +3,13 @@ package cl.bootcampAndroidTD2024.DTO;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * Esta clase contiene al información la información personal del usuario, como el rut, nombre, apellido, teléfono,
+ * se crea por defecto una cuenta con saldo cero y su usuario para poder iniciar sesión.
+ * @author Fabiola Díaz <a href="https://github.com/fabyDiaz/EvaluacionIntegradoraM2TD">Github Fabiola Díaz</a>
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class Usuario {
     private String rutUsuario;
     private String nombreUsuario;
@@ -133,9 +139,6 @@ public class Usuario {
      * Muestra los datos relacionados con el Usuario
      */
     public void mostrarDatosUsuario(){
-        System.out.println("===============================");
-        System.out.println("Los datos son: ");
-        System.out.println("------------------------------");
         System.out.println("NOMBRE: "+nombreCompleto());
         System.out.println(("RUT: "+ this.rutUsuario));
         System.out.println("CORREO: "+this.sesion.getEmailUsuario());

@@ -1,4 +1,4 @@
-# EvaluacionIntegradora Módulo 2
+# Evaluacion Integradora Módulo 2
 ## Proyecto Alke Wallet 
 
 **Situación inicial** 📍
@@ -27,7 +27,7 @@ Requerimientos técnicos/específicos:<br>
 ● JUNIT <br>
 ● StarUML <br>
 
-**El programama** 👨‍💻<br>
+### El programama 👨‍💻
 La aplicación cuenta con un menú de inicio, donde se muestra una bienvenida y un menú con las siguientes opciones: <br>
 - Registrar
 - Iniciar Sesión
@@ -35,6 +35,7 @@ La aplicación cuenta con un menú de inicio, donde se muestra una bienvenida y 
 <br>
 Al registrarse solicita algunos datos para crear un Usuario.
 Al iniciar Sesión con el correo y la contraseña se despliega un menú con las siguientes opciones: <br>
+
 - Ver mis datos 
 - Ver datos de mi cuenta
 - Ingresar dinero
@@ -44,15 +45,15 @@ Al iniciar Sesión con el correo y la contraseña se despliega un menú con las 
 - Ir a conversor de moneda
 - Salir <br><br>
 
-A modo de prueba se trabajó con lista para guardar los usuarios. En esta lista hay dos usuarios ingresados. Si desea inicar sesión directamente puede utilizar cualquiera de estos usuarios. <br><br>
+**A modo de prueba se trabajó con lista para guardar los usuarios. En esta lista hay dos usuarios ingresados. Si desea inicar sesión directamente puede utilizar cualquiera de estos usuarios.** <br><br>
 Correo Usuario 1: admin@correo.cl<br>
 Clave Usuario 1: admin123 <br><br>
 Correo Usuario 2: homero@correo.cl<br>
 Clave Usuario 2: homero123<br><br>
 
-Tammbién puede selecciónr la opción "Registrar" para crear un nuevo usuario que se agregará a la lista. <br>
+**Tammbién puede selecciónr la opción "Registrar" para crear un nuevo usuario que se agregará a la lista.** <br>
 
-Por el momento solo se puede realizar transferenicia a un usuraio que se encuentre registrado en la app AlkeWallet, por lo que para realizar una transferencia de prueba puede escoger uno de los usuarios de la lista o usuario nuevo registrado mientras la aplicación se está ejecutando. 
+Por el momento solo se puede realizar transferencia a un usuraio que se encuentre registrado en la app **AlkeWallet**, por lo que para realizar una transferencia de prueba puede escoger uno de los usuarios de la lista o usuario nuevo registrado mientras la aplicación se está ejecutando. 
 
 
 

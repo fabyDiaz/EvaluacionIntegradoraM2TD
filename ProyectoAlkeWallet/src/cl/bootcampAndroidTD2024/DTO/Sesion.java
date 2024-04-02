@@ -3,7 +3,13 @@ package cl.bootcampAndroidTD2024.DTO;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * Esta clase contiene al información de Sesión del usuario. Contiene el email del usuario y una contraseña.
+ * Estos datos se utilizan para poder inciciar sesión en la plataforma.
+ * @author Fabiola Díaz <a href="https://github.com/fabyDiaz/EvaluacionIntegradoraM2TD">Github Fabiola Díaz</a>
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public class Sesion {
     private String emailUsuario;
     private String contrasena;
