@@ -209,10 +209,6 @@ public class Aplicacion {
                             System.out.println("* INGRESO DE DINERO A MI CUENTA     *");
                             System.out.println("*************************************");
                             System.out.println("Ingrese Monto: ");
-                            while (!scanner.hasNextDouble()) {
-                                System.out.println("Ingrese un monto válido");
-                                scanner.next();
-                            }
                             dinero=scanner.nextDouble();
                             scanner.nextLine();
                             usuario.getCuentaUsuario().ingresoDinero(dinero,1);
@@ -239,10 +235,6 @@ public class Aplicacion {
                             System.out.println("*   RETIRO DE DINERO DE MI CUENTA   *");
                             System.out.println("*************************************");
                             System.out.println("¿Cuánto vas a retirar?");
-                            while (!scanner.hasNextDouble()) {
-                                System.out.println("Ingrese un monto válido");
-                                scanner.next();
-                            }
                             dinero=scanner.nextDouble();
                             scanner.nextLine();
                             usuario.getCuentaUsuario().retiroDinero(dinero,2);
