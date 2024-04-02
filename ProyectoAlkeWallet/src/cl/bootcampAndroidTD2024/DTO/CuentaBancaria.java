@@ -5,7 +5,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 /**
- * Esta calse contiene la cuenta bancaria del cliente. La cuenta tiene un númer de cuenta, el títular, el tipo de cuenta
+ * Esta calse contiene la cuenta bancaria del cliente. La cuenta tiene un número de cuenta, el títular, el tipo de cuenta
  * que por defecto es una cuenta Vista, el saldo y los movimientos de ingreso y egreso de dinero.
  * @author Fabiola Díaz <a href="https://github.com/fabyDiaz/EvaluacionIntegradoraM2TD">Github Fabiola Díaz</a>
  * @version 1.0.0

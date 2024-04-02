@@ -20,7 +20,7 @@ class AplicacionTest {
      * Por lo que esperamos
      * un usuario válido
      * que el correo coincida con el usuario que ya existe
-     * que el contraseña coincida con el usuario que ya existe
+     * que la contraseña coincida con el usuario que ya existe
      */
     @Test
     public void testValidarCredenciales_CredencialesCorrectas() {
@@ -41,7 +41,7 @@ class AplicacionTest {
      * Por lo que esperamos
      * un usuario válido
      * que el correo NO coincida con el correo del usuario que ya existe
-     * que el contraseña coincida con la contraseña del  usuario que ya existe
+     * que la contraseña coincida con la contraseña del usuario que ya existe
      */
     @Test
     public void testValidarCredenciales_CorreoIncorrecto() {
@@ -62,10 +62,10 @@ class AplicacionTest {
      * Por lo que esperamos
      * un usuario válido
      * que el correo coincida con el correo del usuario que ya existe
-     * que el contraseña NO coincida con la contraseña del  usuario que ya existe
+     * que la contraseña NO coincida con la contraseña del usuario que ya existe
      */
     @Test
-    public void testValidarCredenciales_ContraseñaIncorrecto() {
+    public void testValidarCredenciales_ContrasenIncorrecto() {
         String correo = "admin@correo.cl";
         String contrasena = "123";
 
@@ -78,11 +78,11 @@ class AplicacionTest {
         assertFalse(usuarioValido.getSesion().validarContrasena(contrasena)); // Verificar que la contraseña no es correcta
     }
     /**
-     * Validamos credenciales considerando que el correo y la contraeña no son correcto
+     * Validamos credenciales considerando que el correo y la contraseña no son correcto
      * Por lo que esperamos:
      * un usuario válido
      * que el correo NO coincida con el correo del usuario que ya existe
-     * que el contraseña NO coincida con la contraseña del  usuario que ya existe
+     * que la contraseña NO coincida con la contraseña del usuario que ya existe
      */
     @Test
     public void testValidarCredenciales_CredencialesIncorrectas() {

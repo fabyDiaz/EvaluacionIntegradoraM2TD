@@ -15,7 +15,7 @@ class CuentaBancariaTest {
     }
 
     /**
-     * Simulamos que ingresmos una cantidad válida de dinero.
+     * Simulamos que ingresamos una cantidad válida de dinero.
      * Comprobamos que el saldo es el esperado
      */
     @Test
@@ -28,7 +28,7 @@ class CuentaBancariaTest {
     }
 
     /**
-     * Simulamos que ingresmos una cantidad no válida de dinero, en este caso una cantidad negativa.
+     * Simulamos que ingresamos una cantidad no válida de dinero, en este caso una cantidad negativa.
      * Verifica que el saldo no cambie después de intentar ingresar una cantidad negativa
      */
     @Test
@@ -41,7 +41,7 @@ class CuentaBancariaTest {
     }
 
     /**
-     * Simulamos que ingresmos una cantidad válida de dinero que queremos retirar
+     * Simulamos que ingresamos una cantidad válida de dinero que queremos retirar
      * Verifica que el saldo sea el esperado
      */
     @Test
@@ -55,7 +55,7 @@ class CuentaBancariaTest {
     }
 
     /**
-     * Simulamos que ingresmos una cantidad no válida de dinero, en este caso retirar un cantidad superior al saldo actual
+     * Simulamos que ingresamos una cantidad no válida de dinero, en este caso retirar un cantidad superior al saldo actual
      * Verificamos que el saldo no cambie después de intentar retirar más dinero del disponible
      */
     @Test
@@ -69,7 +69,7 @@ class CuentaBancariaTest {
     }
 
     /**
-     * Simulamos que ingresmos una cantidad no válida de dinero, en este caso retirar un cantidad negativa de dinero
+     * Simulamos que ingresamos una cantidad no válida de dinero, en este caso retirar un cantidad negativa de dinero
      * Verificamos que el saldo no cambie después de intentar retirar una cantidad negativa de dinero
      */
     @Test

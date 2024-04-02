@@ -4,8 +4,8 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
- * Esta clase contiene al información de Sesión del usuario. Contiene el email del usuario y una contraseña.
- * Estos datos se utilizan para poder inciciar sesión en la plataforma.
+ * Esta clase contiene la información de sesión del usuario. Contiene el email del usuario y una contraseña.
+ * Estos datos se utilizan para poder iniciar sesión en la plataforma.
  * @author Fabiola Díaz <a href="https://github.com/fabyDiaz/EvaluacionIntegradoraM2TD">Github Fabiola Díaz</a>
  * @version 1.0.0
  * @since 1.0.0
@@ -39,7 +39,7 @@ public class Sesion {
     }
 
     /**
-     * Devuelve verdadero si la contraseña ingresada por el usuario en la aplicación coincide con la encontró en la lista
+     * Devuelve verdadero si la contraseña ingresada por el usuario en la aplicación coincide con la encontrda en la lista
      * @param contrasena
      * @return
      */
@@ -49,8 +49,8 @@ public class Sesion {
     }
 
     /**
-     * Valida que el usuario ingrese un correo con el formato correcto, de lo contrario lo volverá a pedir.
-     * Si el usuario no desea continuar con el registro debe ingresar "s" y el método devolvera un null
+     * Valída que el usuario ingrese un correo con el formato correcto, de lo contrario lo volverá a pedir.
+     * Si el usuario no desea continuar con el registro debe ingresar "s" y el método devolverá un null
      * @param scanner
      * @return email
      */
@@ -78,8 +78,8 @@ public class Sesion {
     }
 
     /**
-     * Valida que el usuario ingrese una contraeña con las condiciones indicadas, de lo contrario lo volverá a pedir.
-     * Si el usuario no desea continuar con el registro debe ingresar "s" y el método devolvera un null
+     * Valída que el usuario ingrese una contraseña con las condiciones indicadas, de lo contrario lo volverá a pedir.
+     * Si el usuario no desea continuar con el registro debe ingresar "s" y el método devolverá un null
      * @param scanner
      * @return contrasena
      */
@@ -101,7 +101,7 @@ public class Sesion {
     }
 
     /**
-     * valida que el email y la contraseña sea distinto de null para retornar una sesión válida.
+     * Valída que el email y la contraseña sea distinto de null para retornar una sesión válida.
      * @param scanner
      * @return nuevaSesion
      */

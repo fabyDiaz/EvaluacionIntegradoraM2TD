@@ -147,7 +147,7 @@ public class Aplicacion {
         return loginExitoso;
     }
     /**
-     *Valida si el correo y contraseña ingresado coincide con el cliente de la lista.
+     *Valída si el correo y contraseña ingresado coincide con el cliente de la lista.
      * En caso que coincidan, devuelve al Usuario.
      * @param correo
      * @param contrasena
@@ -225,7 +225,7 @@ public class Aplicacion {
                             System.out.println("*************************************");
                             Usuario usuarioDestinatario;
                             mensajeTransferencias();
-                            System.out.println("CORREO ELECTRÓNICO");
+                            System.out.println("CORREO ELECTRÓNICO DE DESTINATARIO:");
                             String correoDestinatario = scanner.nextLine();
                             usuarioDestinatario=listaUsuarios.obtenerUsuario(correoDestinatario);
                             usuario.realizarTransferenciaBancaria(scanner, usuarioDestinatario);

@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
- * Esta clase contiene al información la información personal del usuario, como el rut, nombre, apellido, teléfono,
+ * Esta clase contiene la información personal del usuario, como el rut, nombre, apellido, teléfono,
  * se crea por defecto una cuenta con saldo cero y su usuario para poder iniciar sesión.
  * @author Fabiola Díaz <a href="https://github.com/fabyDiaz/EvaluacionIntegradoraM2TD">Github Fabiola Díaz</a>
  * @version 1.0.0
@@ -196,7 +196,7 @@ public class Usuario {
     }
 
     /**
-     * Valida rut de la forma XXXXXXXX-X y que se ingrese un digito verificador válido
+     * Valida rut de la forma XXXXXXXX-X y que se ingrese un dígito verificador válido
      * @param rut
      * @return
      */
