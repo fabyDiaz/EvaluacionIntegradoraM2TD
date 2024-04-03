@@ -31,7 +31,9 @@ Requerimientos técnicos/específicos:<br>
 La aplicación cuenta con un menú de inicio, donde se muestra una bienvenida y un menú con las siguientes opciones: <br>
 - Registrar
 - Iniciar Sesión
-- Salir 
+- Salir
+
+<img src="C:\EvaluacionIntegradoraM2\Entregables\imagenesApp\Inicio.png">
 <br>
 Al registrarse solicita algunos datos para crear un Usuario.
 Al iniciar Sesión con el correo y la contraseña se despliega un menú con las siguientes opciones: <br>
