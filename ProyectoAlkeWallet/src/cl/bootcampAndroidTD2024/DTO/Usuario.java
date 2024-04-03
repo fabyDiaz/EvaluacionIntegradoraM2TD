@@ -269,6 +269,7 @@ public class Usuario {
             System.out.println("\nMONTO A TRANSFERIR: ");
             montoDestinatario = scanner.nextDouble();
             scanner.nextLine();
+            System.out.println("");
             if(montoDestinatario>cuentaUsuario.getSaldo()){
                 System.out.println("No tiene saldo suficiente");
             }else if (montoDestinatario<=0) {
