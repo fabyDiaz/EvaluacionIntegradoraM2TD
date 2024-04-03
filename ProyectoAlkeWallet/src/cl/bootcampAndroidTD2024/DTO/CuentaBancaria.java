@@ -14,7 +14,6 @@ import java.util.*;
 public class CuentaBancaria {
     private long numeroCuenta;
     private String titular;
-
     private String tipoCuenta;
     private double saldo;
     private List<MovimientosBancarios> movimientos = new ArrayList<>();
@@ -67,7 +66,7 @@ public class CuentaBancaria {
     /**
      * Muestra los datos relacionados con la cuenta Bancaria
      */
-    public void MostrarDatosCuenta(){
+    public void mostrarDatosCuenta(){
         System.out.println("N° CUENTA: "+ numeroCuenta);
         System.out.println("TITULAR: "+ titular);
         System.out.println("SALDO: "+ formatearMoneda(saldo));
@@ -116,7 +115,7 @@ public class CuentaBancaria {
      * @param tipoDeMovimiento
      * @return
      */
-    public String tipoIngresoSalidaDinero (int tipoDeMovimiento){
+    private String tipoIngresoSalidaDinero (int tipoDeMovimiento){
         if(tipoDeMovimiento== 1){
             return "Depósito";
         }

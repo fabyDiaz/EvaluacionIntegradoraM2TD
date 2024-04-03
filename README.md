@@ -1,4 +1,4 @@
-# Evaluacion Integradora Módulo 2
+# Evaluación Integradora Módulo 2
 ## Proyecto Alke Wallet 
 
 **Situación inicial** 📍
@@ -6,7 +6,7 @@
 Unidad solicitante: Equipo de desarrollo de una empresa fintech <br>
 📌El equipo de desarrollo ha recibido la solicitud de crear una wallet digital para la empresa Alkemy Digital. La problemática a resolver es brindar a los usuarios una solución segura y fácil de usar para administrar sus activos financieros de manera digital. La wallet permitirá a los usuarios realizar transacciones dentro de la plataforma. 
 
-**Nuestro objetivo** 🎯<br>
+**objetivo** 🎯<br>
 
 El objetivo de nuestro proyecto "Alke Wallet" es desarrollar una billetera digital que permita a los usuarios gestionar sus activos financieros de manera segura y conveniente. Nuestro objetivo es entregar una aplicación funcional, segura y fácil de usar que proporcione a los usuarios una solución confiable para administrar sus activos financieros de manera digital.
  
@@ -60,7 +60,7 @@ Clave Usuario 1: admin123 <br><br>
 Correo Usuario 2: homero@correo.cl<br>
 Clave Usuario 2: homero123<br><br>
 
-**Tammbién puede selecciónr la opción "Registrar" para crear un nuevo usuario que se agregará a la lista.** <br>
+**También puede selecciónar la opción "Registrar" para crear un nuevo usuario que se agregará a la lista.** <br>
 
 Por el momento solo se puede realizar transferencia a un usuraio que se encuentre registrado en la app **AlkeWallet**, por lo que para realizar una transferencia de prueba puede escoger uno de los usuarios de la lista o usuario nuevo registrado mientras la aplicación se está ejecutando. 
 

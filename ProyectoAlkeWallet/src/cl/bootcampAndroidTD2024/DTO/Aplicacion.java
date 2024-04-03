@@ -190,7 +190,7 @@ public class Aplicacion {
                             "   5.-    Retirar dinero\n"+
                             "   6.-    Ver movimientos\n"+
                             "   7.-    Conversor de moneda\n"+
-                            "   8.-    Salir");
+                            "   8.-    Cerrar sesión");
                     opcion = scanner.nextInt();
                     scanner.nextLine();
                     switch (opcion) {
@@ -206,7 +206,7 @@ public class Aplicacion {
                             System.out.println("*************************************");
                             System.out.println("*       DATOS DE MI CUENTA          *");
                             System.out.println("*************************************");
-                            usuario.getCuentaUsuario().MostrarDatosCuenta();
+                            usuario.getCuentaUsuario().mostrarDatosCuenta();
                             System.out.println("Presione Enter para continuar...");
                             scanner.nextLine();
                             break;
