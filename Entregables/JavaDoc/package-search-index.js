@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"cl.bootcampAndroidTD2024.DAO"},{"l":"cl.bootcampAndroidTD2024.DTO"}];updateSearchResults();
