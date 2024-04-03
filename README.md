@@ -32,8 +32,9 @@ La aplicación cuenta con un menú de inicio, donde se muestra una bienvenida y 
 - Registrar
 - Iniciar Sesión
 - Salir
-![Inicio de la app AlkeWallet](Entregables/imagenesApp/Inicio.png)
 <br>
+![Inicio de la app AlkeWallet](Entregables/imagenesApp/Inicio.png)
+
 Al registrarse solicita algunos datos para crear un Usuario.
 Al iniciar Sesión con el correo y la contraseña se despliega un menú con las siguientes opciones: <br>
 
@@ -44,7 +45,10 @@ Al iniciar Sesión con el correo y la contraseña se despliega un menú con las 
 - Retirar dinero
 - Ver movimientos
 - Ir a conversor de moneda
-- Salir <br><br>
+- Salir <br>
+![Inicio de la app AlkeWallet](Entregables/imagenesApp/inicioSesion.png)
+
+<br>
 
 **A modo de prueba se trabajó con lista para guardar los usuarios. En esta lista hay dos usuarios ingresados. Si desea inicar sesión directamente puede utilizar cualquiera de estos usuarios.** <br><br>
 Correo Usuario 1: admin@correo.cl<br>
