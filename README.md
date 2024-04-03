@@ -15,7 +15,7 @@ El objetivo de nuestro proyecto "Alke Wallet" es desarrollar una billetera digit
 La aplicación "Alke Wallet" deberá cumplir con una serie de requisitos y especificaciones técnicas para garantizar su funcionalidad y calidad.<br> A continuación, se detallan los requerimientos generales y técnicos: <br><br>
 Requerimientos generales:<br>
 ● Administración de fondos: El programa debe permitir crear una cuenta, ver su saldo disponible, realizar ingreso y retiro de dinero (debe impactar sobre el saldo actual).<br>
-● Conversión de moneda: El programa debe permitir convertir el saldo de un tipo de moneda a otra. <br><br>
+● Conversión de moneda: El programa debe permitir convertir el saldo de un tipo de moneda a otra. <br>
 
 Requerimientos técnicos/específicos:<br>
 ● Backend: Java implementando el paradigma orientado a objetos para desarrollar y gestionar la lógica del negocio. Utilizar interfaces para reutilización de código.<br>
@@ -47,8 +47,11 @@ Al iniciar Sesión con el correo y la contraseña se despliega un menú con las 
 - Retirar dinero
 - Ver movimientos
 - Ir a conversor de moneda
-- Salir <br>
+- Salir 
+<br>
+
 ![Inicio de la app AlkeWallet](Entregables/imagenesApp/inicioSesion.png)
+
 <br>
 
 **A modo de prueba se trabajó con lista para guardar los usuarios. En esta lista hay dos usuarios ingresados. Si desea inicar sesión directamente puede utilizar cualquiera de estos usuarios.** <br><br>

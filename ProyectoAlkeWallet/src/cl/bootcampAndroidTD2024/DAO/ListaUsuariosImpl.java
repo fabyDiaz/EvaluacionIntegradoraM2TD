@@ -21,7 +21,7 @@ public class ListaUsuariosImpl implements IListaUsuarios {
      * Creamos una lista de de usuarios con algunos datos ingresados a modo de prueba para simular una base de datos.
      */
     public ListaUsuariosImpl() {
-        this.listaUsuarios.add(new Usuario("12345678-5","Homero","Simpson","987654321", new CuentaBancaria(2,"HOMERO SIMPSON", "Vista"),new Sesion("homero@correo.cl","homero123")));
+        this.listaUsuarios.add(new Usuario("11111111-2","Homero","Simpson","987654321", new CuentaBancaria(2,"HOMERO SIMPSON", "Vista"),new Sesion("homero@correo.cl","homero123")));
         this.listaUsuarios.add(new Usuario("11111111-1","Admin","Ejemplo","912345678", new CuentaBancaria(3, "ADMIN EJEMPLO", "Vista"),new Sesion("admin@correo.cl","admin123")));
     }
 

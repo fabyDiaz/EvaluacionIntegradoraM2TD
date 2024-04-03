@@ -38,7 +38,7 @@ public class Aplicacion {
 
     /**
      * Método que muestra el menú de inicio de la App AlkWallet
-     * En este menú se despliega la opciones de crear una cuenta o ingrear con una cuenta existente.
+     * En este menú se despliega las opciones de crear una cuenta o ingrear con una cuenta existente.
      * Si decide ingresar ocn una cuenta exitente, tendrá un máximo de 3 intentos, de lo contrario se termina la ejecución.
      */
     public void menuInicioApp() {
@@ -54,6 +54,7 @@ public class Aplicacion {
                 System.out.println("    Selecciona una opción");
                 opcion = scanner.nextInt();
                 System.out.println("Presione Enter para continuar...");
+                System.out.println("\n");
                 scanner.nextLine();
                 switch (opcion) {
                     case 1:
@@ -104,9 +105,9 @@ public class Aplicacion {
     }
 
     /**
-     *  Verifica que el correo y la contraseña ingresada ya se encuntra registrado.
-     *  Si lo encuntra devuelve al Cliente
-     * @return TRUE si el usuario existe en la lista y  el correo y la contraseña ingresada son correctas
+     *  Verifica que el correo y la contraseña ingresada ya se encuentra registrado.
+     *  Si lo encuentra devuelve al Cliente
+     * @return TRUE si el usuario existe en la lista y el correo y la contraseña ingresada son correctas
      *
      */
     public boolean inicioSesion() {
@@ -119,8 +120,10 @@ public class Aplicacion {
         while (intentos < 3 && !loginExitoso) {
             System.out.println("Ingrese su correo electrónico:");
             correo = scanner.nextLine();
+            System.out.println("");
             System.out.println("Ingrese su contraseña:");
             contrasena = scanner.nextLine();
+            System.out.println("");
 
             // Validar usuario y contraseña
             for (int i = 0; i < listaUsuarios.obtenerTodosUsuarios().size(); i++) {
@@ -148,7 +151,7 @@ public class Aplicacion {
     }
     /**
      *Valída si el correo y contraseña ingresado coincide con el cliente de la lista.
-     * En caso que coincidan, devuelve al Usuario.
+     * En caso de que coincidan, devuelve al Usuario.
      * @param correo
      * @param contrasena
      * @param usuario

@@ -102,12 +102,14 @@ public class Usuario {
             return null;
         }
         this.nombreUsuario = nombre;
+        System.out.println("");
         String apellido = validarApellido(scanner);
         if (apellido == null) {
             System.out.println("Creación de usuario cancelada.");
             return null;
         }
         this.apellidoUsuario = apellido;
+        System.out.println("");
         do{
             System.out.println("RUT (en formato xxxxxxxx-x): ");
             this.rutUsuario= scanner.nextLine();
@@ -115,12 +117,14 @@ public class Usuario {
         if(rutUsuario==null){
             return null;
         }
+        System.out.println("");
         String telefono = validarTelefono(scanner);
         if (telefono == null) {
             System.out.println("Creación de usuario cancelada.");
             return null;
         }
         this.telefonoUsuario = telefono;
+        System.out.println("");
         Sesion nuevaSesion = sesion1.nuevaSesion(scanner);
         if (nuevaSesion == null) {
             System.out.println("Creación de usuario cancelada.");

@@ -107,8 +107,9 @@ public class Sesion {
      */
     public Sesion nuevaSesion(Scanner scanner){
         String email = validarEmail(scanner);
+        System.out.println("");
         String contrasena = validarContrasena(scanner);
-
+        System.out.println("");
         if(email==null || contrasena==null){
             return null;
         }else{
